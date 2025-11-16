@@ -1,0 +1,319 @@
+.home-right-container{   
+  flex: 1 1 auto;            
+  min-width: 0;             
+  background: #ffffff;        
+  color: #fff;
+  padding: 32px;
+  overflow: auto;
+}
+
+.each-container-main-heading{
+     align-self: flex-start;
+    color:black;
+    font-size:32px;
+    font-weight: bold;
+    font-family:"Roboto";
+    background: linear-gradient(90deg, #6610f2, #d63384);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+/* Page wrapper */
+.mentor-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header */
+.mentor-page-header {
+  margin-bottom: 0.5rem;
+}
+
+.mentor-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* Main layout: 2 columns on desktop, 1 column on mobile */
+.mentor-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* Left column */
+.mentor-left {
+  flex: 0 0 280px;
+  max-width: 320px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+/* Avatar */
+.mentor-avatar-wrapper {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #e5e7eb;
+}
+
+.mentor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text info left side */
+.mentor-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.mentor-username {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.mentor-experience {
+  font-size: 0.9rem;
+  color: #10b981;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.mentor-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mentor-btn {
+  border: none;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.mentor-btn.primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.25);
+}
+
+.mentor-btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.3);
+}
+
+.mentor-btn.outline {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+}
+
+.mentor-btn.outline:hover {
+  background-color: #f3f4f6;
+}
+
+.mentor-btn.ghost {
+  background-color: transparent;
+  color: #2563eb;
+  border: 1px dashed #bfdbfe;
+}
+
+.mentor-btn.ghost:hover {
+  background-color: #eff6ff;
+}
+
+/* Right column */
+.mentor-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Info sections */
+.mentor-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.mentor-section h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Bio text */
+.mentor-bio {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.mentor-placeholder {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Expertise tags */
+.mentor-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mentor-tag {
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Contact list */
+.mentor-contact-list p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 0
+}
+.mentor-loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  gap: 12px;
+}
+
+.mentor-loading-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.beat-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.beat-loader span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #007bff;
+  display: inline-block;
+  animation: beat 0.6s infinite alternate;
+}
+
+.beat-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.beat-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes beat {
+  from {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+
+/* --- MOBILE IMPROVEMENTS — override only small screens --- */
+@media (max-width: 768px) {
+
+  .mentor-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Left card full width & centered */
+  .mentor-left {
+    max-width: 100%;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+
+  /* Avatar becomes slightly smaller for balance */
+  .mentor-avatar-wrapper {
+    width: 120px !important;
+    height: 120px !important;
+    margin-bottom: 1rem;
+  }
+
+  /* Buttons stacked but bigger touch area */
+  .mentor-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .mentor-btn {
+    flex: 1 1 calc(50% - 1rem);
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .mentor-btn.ghost {
+    flex: 1 1 100%;
+  }
+
+  /* Right section styling */
+  .mentor-right {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .mentor-section {
+    padding: 1.1rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  /* Tags wrap nicely */
+  .mentor-tags {
+    justify-content: flex-start;
+  }
+
+  .mentor-tag {
+    font-size: 0.78rem;
+    padding: 0.28rem 0.55rem;
+  }
+
+  /* Contact rows stack better */
+  .mentor-contact-list p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

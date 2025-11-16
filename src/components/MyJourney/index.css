@@ -1,0 +1,55 @@
+.home-right-container{   
+  flex: 1 1 auto;            
+  min-width: 0;             
+  background: #ffffff;        
+  color: #fff;
+  padding: 32px;
+  overflow: auto;
+}
+
+.each-container-main-heading{
+    align-self: flex-start;
+    color:black;
+    font-size:32px;
+    font-weight: bold;
+    font-family:"Roboto";
+    background: linear-gradient(90deg, #6610f2, #d63384);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.jobs-board-container{
+  background-color: rgb(182, 202, 203);
+  display: flex;
+  flex-direction: column;
+  padding:40px;
+  align-items: center;
+  justify-content: center;
+}
+.coming-soon-container {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .coming-soon-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  .coming-soon-container h2 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+    color: #222;
+  }
+
+  .coming-soon-container p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  

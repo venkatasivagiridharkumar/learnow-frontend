@@ -1,0 +1,82 @@
+
+.app-root {
+  min-height: 100vh;
+}
+
+.login-page {
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: radial-gradient(circle at top left, #4f46e5, #1e293b);
+  background-attachment: fixed;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 900px;
+  min-height: 420px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.login-hero {
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #4f46e5, #0ea5e9);
+  color: #f9fafb;
+}
+
+.brand-title {
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.brand-tagline {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.brand-points {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.brand-points li {
+  margin-bottom: 0.4rem;
+}
+
+.login-form-wrapper {
+  background-color: #ffffff;
+}
+
+.login-btn {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.forgot-link {
+  font-size: 0.85rem;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.15rem rgba(79, 70, 229, 0.25);
+  border-color: #4f46e5;
+}
+
+@media (max-width: 767.98px) {
+  .login-card {
+    border-radius: 1rem;
+  }
+
+  .login-page {
+    padding: 1rem;
+  }
+
+  .login-form-wrapper {
+    padding: 2rem 1.5rem !important;
+  }
+}

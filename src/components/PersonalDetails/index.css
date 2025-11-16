@@ -1,0 +1,217 @@
+/* Container from your layout */
+.home-right-container {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 24px;
+  overflow: auto;
+  background: radial-gradient(circle at top left, #f5f0ff, #f7fbff 48%, #ffffff);
+}
+
+/* Page header */
+.student-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.each-container-main-heading {
+  color: #111827;
+  font-size: 32px;
+  font-weight: 800;
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(90deg, #4c6fff, #d63384);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.student-header-subtitle {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.98rem;
+}
+
+/* Loader */
+.student-loader-wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-loader-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* Error card */
+.student-error-card {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  font-size: 0.95rem;
+}
+
+/* Layout */
+.student-layout {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+  gap: 20px;
+}
+
+/* On small screens stack vertically */
+@media (max-width: 768px) {
+  .student-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Columns */
+.student-column {
+  min-width: 0;
+}
+
+.student-column-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cards */
+.student-summary-card,
+.student-info-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 18px;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.04);
+  border: 1px solid #eef2ff;
+}
+
+/* Avatar */
+.student-avatar-wrapper-lg {
+  width: 130px;
+  height: 130px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0 auto 12px;
+  border: 3px solid rgba(76, 111, 255, 0.2);
+}
+
+.student-avatar-img-lg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text styles */
+.student-name-main {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.student-tagline-main {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.student-grad-pill {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #374151;
+  margin: 0;
+}
+
+.student-grad-pill span {
+  font-weight: 600;
+  color: #4c6fff;
+}
+
+
+.student-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+/* Info grid */
+.student-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 576px) {
+  .student-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.student-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+.student-info-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+}
+
+.student-info-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+
+.student-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.student-skill-chip {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #edf2ff;
+  color: #3730a3;
+  border: 1px solid #e0e7ff;
+  font-weight: 500;
+}
+
+.student-empty-text {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+@media (max-width: 576px) {
+  .home-right-container {
+    padding: 16px;
+  }
+
+  .student-summary-card,
+  .student-info-card {
+    padding: 16px 14px;
+  }
+}

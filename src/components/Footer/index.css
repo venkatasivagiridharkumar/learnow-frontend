@@ -1,0 +1,100 @@
+/* Hidden by default (desktop); shown only on tablets & mobiles) */
+.app-mobile-footer {
+  display: none;
+}
+
+/* Tablets & Mobiles: show and fix to bottom */
+@media (max-width: 1024px) {
+  /* Avoid content being hidden behind the fixed footer */
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .app-mobile-footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1100;
+
+    /* Size & spacing */
+    height: 64px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    /* Style */
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .app-mobile-footer__nav {
+    height: 64px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 4px;
+    padding: 0 8px;
+  }
+
+  .app-mobile-footer__item {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: #111827; /* slate-900 */
+    font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+
+    /* touch target */
+    min-width: 64px;
+  }
+
+  .app-mobile-footer__item:focus-visible {
+    outline: 2px solid #6610f2;
+    outline-offset: 2px;
+    border-radius: 12px;
+  }
+
+  .app-mobile-footer__item:active {
+    background: rgba(102, 16, 242, 0.08);
+    border-radius: 12px;
+  }
+
+  .app-mobile-footer__icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .app-mobile-footer__label {
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+/* Small phones: tighten spacing & bump icon for clarity */
+@media (max-width: 480px) {
+  body {
+    padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .app-mobile-footer {
+    height: 58px;
+  }
+
+  .app-mobile-footer__nav {
+    height: 58px;
+    gap: 2px;
+  }
+
+  .app-mobile-footer__icon {
+    font-size: 20px;
+  }
+
+  .app-mobile-footer__label {
+    font-size: 11px;
+  }
+}

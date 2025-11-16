@@ -1,0 +1,117 @@
+.home-right-container{   
+  flex: 1 1 auto;            
+  min-width: 0;             
+  background: #ffffff;        
+  color: #fff;
+  padding: 32px;
+  overflow: auto;
+}
+
+.each-container-main-heading{
+  align-self: flex-start;
+  color:black;
+  font-size:32px;
+  font-weight: bold;
+  font-family:"Roboto", sans-serif;
+  background: linear-gradient(90deg, #6610f2, #d63384);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.workshops-row{
+  width: 100%;
+  gap: 24px;                 
+  flex-wrap: wrap; 
+  list-style-type:none;          
+}
+
+.workshop-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 1rem 0;
+  width: 40%;                
+  align-self:flex-start;
+  max-width: 600px;
+  color: #222;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.workshop-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: #ccc;
+}
+
+.workshop-header { margin-bottom: 0.5rem; }
+.workshop-title { font-size: 1.4rem; font-weight: 600; color: #222; margin: 0; }
+.workshop-subtitle { font-size: 1rem; color: #777; margin-top: 4px; }
+
+.workshop-desc { font-size: 1rem; color: #555; margin: 0.5rem 0 1.2rem; }
+
+.workshop-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+.status {
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #fff;
+}
+.status.completed { background: #28a745; }
+
+.workshop-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.view-btn {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.view-btn:hover { background-color: #0056b3; transform: translateY(-2px); }
+.enrollment-text { font-size: 0.9rem; color: #555; }
+
+/* ========== Responsiveness ========== */
+
+/* Large tablets / small laptops: let cards be ~half width */
+@media (max-width: 1024px) {
+  .workshop-card { width: 48%; }
+}
+
+/* Tablets and down: stack in a column */
+@media (max-width: 768px) {
+  .workshops-row{
+    flex-direction: column;   /* ← stack cards vertically */
+    gap: 16px;
+  }
+  .workshop-card{
+    width: 100%;
+    max-width: 100%;
+    margin: 0;                /* tighter vertical spacing */
+  }
+  .workshop-info { grid-template-columns: 1fr; }
+  .view-btn { width: 100%; }  /* full-width button on tablet/phone */
+}
+
+/* Small phones: tighter text sizing if needed */
+@media (max-width: 480px) {
+  .workshop-title { font-size: 1.2rem; }
+  .workshop-desc  { font-size: 0.95rem; }
+}
