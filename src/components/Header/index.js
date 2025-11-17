@@ -4,7 +4,7 @@ import "./index.css";
 import {Link} from "react-router-dom";
 
 const Header = (props) => {
-  const [details,setDetails]=useState({img:"https://www.pngall.com/wp-content/uploads/12/Avatar-PNG-Images-HD.png",name:"Un Defined"})
+  const [details,setDetails]=useState({img:"https://live.staticflickr.com/65535/54912741337_c6839d7c75_w.jpg",name:"GC Yaswanth"})
   const [open, setOpen] = useState(false);
   const btnRef = useRef(null);
   const menuRef = useRef(null);
@@ -44,7 +44,7 @@ const getDetails = async () => {
   }
 };
 
-  useEffect(()=>{
+  /*useEffect(()=>{
      getDetails()
   },[])
 
@@ -67,7 +67,7 @@ const getDetails = async () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKey);
     };
-  }, [open]);
+  }, [open]);*/
 
   return (
     <nav className="nav-container" aria-label="Main navigation">

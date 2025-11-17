@@ -8,16 +8,16 @@ const defaultPhoto =
 
 const PersonalDetails = () => {
   const [profile, setProfile] = useState({
-    full_name: "",
-    address: "",
-    phone: "",
-    photo: "",
-    highest_study: "",
-    college: "",
+    full_name: "GC Yaswanth",
+    address: "BTM Layout, Benguluru",
+    phone: "+91 8688541202",
+    photo: "https://live.staticflickr.com/65535/54912741337_c6839d7c75_w.jpg",
+    highest_study: "B Tech",
+    college: "Siddharth Institute of Engineering And Technology",
     graduation_year: 2025,
-    expertise: "",
+    expertise: "Java, Pyhton, SQL, ML",
   });
-  const navigate=useNavigate();
+  /*const navigate=useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -67,11 +67,29 @@ const PersonalDetails = () => {
     getProfile();
   }, []);
 
-  const expertiseTags =
+  
+
+ {loading ? (
+        <div className="student-loader-wrapper">
+          <BeatLoader size={12} />
+          <p className="student-loader-text">Loading your profile…</p>
+        </div>
+      ) : error ? (
+        <div className="student-error-card">
+          <p>{error}</p>
+        </div>
+      ) : (
+
+
+*/
+
+const expertiseTags =
     profile.expertise
       ?.split(",")
       .map((tag) => tag.trim())
       .filter(Boolean) || [];
+
+
 
   return (
     <div className="home-right-container student-page">
@@ -84,20 +102,10 @@ const PersonalDetails = () => {
  <button
             type="button"
             className="student-edit-link-btn"
-            onClick={() => navigate("/edit-details")}
           >
             ✏️ Edit Profile
           </button>
-      {loading ? (
-        <div className="student-loader-wrapper">
-          <BeatLoader size={12} />
-          <p className="student-loader-text">Loading your profile…</p>
-        </div>
-      ) : error ? (
-        <div className="student-error-card">
-          <p>{error}</p>
-        </div>
-      ) : (
+     
         <section className="student-layout">
           <div className="student-column student-column-left">
             <div className="student-summary-card">
@@ -188,7 +196,6 @@ const PersonalDetails = () => {
             </div>
           </div>
         </section>
-      )}
     </div>
   );
 };

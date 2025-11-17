@@ -57,7 +57,7 @@ const Announcements = () => {
         )}        
 
          {!isLoading && !error && announcementsList.length === 0 && (
-        <h3 className="empty-text">There is no Jobs right now!</h3>
+        <h3 className="empty-text">Exciting Updates On the Way.</h3>
       )}
        
         <ul className="d-flex flex-row workshops-row">

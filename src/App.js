@@ -21,7 +21,7 @@ import EditPersonalDetails from "./components/EditPersonalDetails";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  
+/*  
   useEffect(() => {
     const username = localStorage.getItem("username");
     if (username) {
@@ -43,12 +43,12 @@ const App = () => {
   if (!isAuthenticated) {
     return <Login onLogin={handleLogin} />;
   }
-
+*/
   return (
     <>
-      <Header onLogout={handleLogout} />
+      <Header  />
       <div className="home-container">
-        <HomeLeft onLogout={handleLogout} />
+        <HomeLeft />
         <main className="page-content">
           <Routes>
             <Route path="/" element={<HomeRight />} />

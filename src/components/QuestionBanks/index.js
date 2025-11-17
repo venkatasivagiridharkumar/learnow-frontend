@@ -4,12 +4,74 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
 
+const questionsList = [
+  {
+    id: "qb1",
+    name: "Simple Array Sum",
+    difficulty: "Easy",
+    link: "https://www.hackerrank.com/challenges/simple-array-sum"
+  },
+  {
+    id: "qb2",
+    name: "Diagnaol Difference",
+    difficulty: "Medium",
+    link: "https://www.hackerrank.com/challenges/diagonal-difference"
+  },
+  {
+    id: "qb3",
+    name: "Grading students",
+    difficulty: "Easy",
+    link: "https://www.hackerrank.com/challenges/grading"
+  },
+  {
+    id: "qb4",
+    name: "Bill Division",
+    difficulty: "Medium",
+    link: "https://www.hackerrank.com/challenges/bon-appetit"
+  },
+  {
+    id: "qb5",
+    name: "Longest Prefix Sum",
+    difficulty: "Medium",
+    link: "https://www.hackerrank.com/challenges/bon-appetit"
+  },
+  {
+    id: "qb6",
+    name: "Palindrome Number",
+    difficulty: "Easy",
+    link: "https://www.hackerrank.com/challenges/bon-appetit"
+  }
+  ,
+  {
+    id: "qb7",
+    name: "Highest Prime number",
+    difficulty: "Medium",
+    link: "https://www.hackerrank.com/challenges/bon-appetit"
+  },
+  {
+    id: "qb8",
+    name: "Remove Parenthesis",
+    difficulty: "Medium",
+    link: "https://www.hackerrank.com/challenges/bon-appetit"
+  },
+  {
+    id: "qb9",
+    name: "Trapping Water",
+    difficulty: "Hard",
+    link: "https://www.hackerrank.com/challenges/bon-appetit"
+  }
+];
+
+
 const QuestionBanks = () => {
+ 
+ /* 
   const [questionsList, setQuestionsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const getQuestionsList = async () => {
+ 
+ const getQuestionsList = async () => {
     const path = "https://learnowback.onrender.com/frontend-coding-questions";
     setIsLoading(true);
     setError(null);
@@ -33,11 +95,9 @@ const QuestionBanks = () => {
     getQuestionsList();
   }, []);
 
-  return (
-    <div className="home-right-container">
-      <h1 className="each-container-main-heading">Question Banks</h1>
 
-      {isLoading && (
+
+ {isLoading && (
         <div className="loader-container pt-5" aria-live="polite" aria-busy="true">
           <BeatLoader size={13} className="mt-5" />
         </div>
@@ -56,6 +116,17 @@ const QuestionBanks = () => {
         <p className="empty-text">No questions found.</p>
       )}
       {!isLoading && !error && questionsList.length > 0 && (
+
+
+
+
+  */
+
+  return (
+    <div className="home-right-container">
+      <h1 className="each-container-main-heading">Question Banks</h1>
+
+     
         <ul className="questionbank-container">
           {questionsList.map((each) => (
             <a href={each.link} className="text-decoration-none" target="_blank" rel="noreferrer"><li
@@ -89,7 +160,6 @@ const QuestionBanks = () => {
             </a>
           ))}
         </ul>
-      )}
     </div>
   );
 };
