@@ -64,7 +64,7 @@ const HomeLeft = (props) => {
   const [activeId, setActiveId] = useState("HOME");
   const [username,setUsername]=useState("Yaswanth")
 
-  /*const handleLogout=props.onLogout;
+  const handleLogout=props.onLogout;
 
   const getUsername=async()=>{
     const username = localStorage.getItem("username");
@@ -84,7 +84,7 @@ const HomeLeft = (props) => {
   useEffect(()=>{
     getUsername()
   })
-*/
+
 
 
 
@@ -106,7 +106,7 @@ const HomeLeft = (props) => {
 
       <div className="logout-container">
         <h5>UID: {username}</h5>
-        <svg
+        <svg onClick={()=>handleLogout()}
           xmlns="http://www.w3.org/2000/svg"
           width="32"
           height="88"

@@ -1,7 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./index.css";
+import {useState,useEffect} from "react";
+import { BeatLoader } from "react-spinners";
 
-const jobsList = [
+/*const jobsList = [
   {
     company: "Concentrix",
     role: "Technical Non vocal",
@@ -48,10 +50,10 @@ const jobsList = [
     link: "https://www.amazon.jobs/en/jobs/12345-sde-i"
   }
 ];
-
+*/
 
 const JobsBoard = () => {
-  /*const [jobsList,setJobsList]=useState([]);
+  const [jobsList,setJobsList]=useState([]);
   const [isLoading,setIsLoading]=useState(true)
   const [error, setError] = useState(false);
 
@@ -86,7 +88,13 @@ const JobsBoard = () => {
 
 
 
- {isLoading && (
+ 
+      
+
+  return (
+    <div className="home-right-container">
+      <h1 className="each-container-main-heading">Jobs Board</h1>
+      {isLoading && (
         <div className="loader-container pt-5" aria-live="polite" aria-busy="true">
           <BeatLoader size={13} className="mt-5" />
         </div>
@@ -105,19 +113,6 @@ const JobsBoard = () => {
          {!isLoading && !error && jobsList.length === 0 && (
         <h3 className="empty-text">There is no Jobs right now!</h3>
       )}
-      
-
-
-
-*/
-
-
-
-  return (
-    <div className="home-right-container">
-      <h1 className="each-container-main-heading">Jobs Board</h1>
-
-        
       <div className="jobs-board-container">
         <ul className="jobs-list">
          {jobsList.map(each=>

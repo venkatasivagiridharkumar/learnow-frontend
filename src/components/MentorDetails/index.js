@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const defaultPhoto =
   "https://www.pngall.com/wp-content/uploads/12/Avatar-PNG-Images-HD.png";
 
-const details={
+/*const details={
     username: "charan",
     name: "Meda Sree Ram Charan",
     photo: "https://live.staticflickr.com/65535/54914267170_bcf06f0e8b_n.jpg",
@@ -14,25 +14,10 @@ const details={
     expertise: "Java, SQL, Python",
     bio: "Ready to Help you 24/7",
     linkedIn: "https://linkedin.com/",
-  };
+  };*/
 
 const MentorDetails = () => {
- 
-  const openWhatsApp = (number) => {
-    if (!number) return;
-    const cleaned = String(number).replace(/\D/g, "");
-    window.open(`https://wa.me/${cleaned}`, "_blank", "noopener,noreferrer");
-  };
-
-  const callMentor = (number) => {
-    if (!number) return;
-    const cleaned = String(number).replace(/[^\d+]/g, ""); 
-    window.location.href = `tel:${cleaned}`;
-  };
-/*
-
-
- const [details, setDetails] = useState({
+  const [details, setDetails] = useState({
     username: "",
     name: "",
     photo: "",
@@ -47,27 +32,19 @@ const MentorDetails = () => {
   const [error, setError] = useState("");
 
 
-  {isLoading && (
-        <div className="mentor-loader-wrapper">
-          <div className="beat-loader">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <p className="mentor-loading-text">Fetching your mentor details...</p>
-        </div>
-      )}
 
-      
-      {!isLoading && error && (
-        <div className="mentor-error">
-          <p>{error}</p>
-        </div>
-      )}
+ 
+  const openWhatsApp = (number) => {
+    if (!number) return;
+    const cleaned = String(number).replace(/\D/g, "");
+    window.open(`https://wa.me/${cleaned}`, "_blank", "noopener,noreferrer");
+  };
 
-
-
-
+  const callMentor = (number) => {
+    if (!number) return;
+    const cleaned = String(number).replace(/[^\d+]/g, ""); 
+    window.location.href = `tel:${cleaned}`;
+  };
 
 
   const getDetails = async () => {
@@ -130,15 +107,9 @@ const MentorDetails = () => {
   }
 };
 
-
   useEffect(() => {
     getDetails();
   }, []);
-
-
-*/
-
-
 
   const expertiseTags =
     details.expertise?.split(",").map((tag) => tag.trim()).filter(Boolean) ||
@@ -152,11 +123,24 @@ const MentorDetails = () => {
           The right mentor doesn’t just give answers – they guide your direction.
         </p>
       </header>
-
+    
       
-      
-      {/* 👇 Actual content only when not loading + no error */}
+      {!isLoading && error && (
+        <div className="mentor-error">
+          <p>{error}</p>
+        </div>
+      )}
      
+ {isLoading ? (
+        <div className="mentor-loader-wrapper">
+          <div className="beat-loader">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p className="mentor-loading-text">Fetching your mentor details...</p>
+        </div>
+      ):(
         <section className="mentor-layout">
           <div className="mentor-left">
             <div className="mentor-avatar-wrapper">
@@ -261,7 +245,7 @@ const MentorDetails = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section>)}
     </div>
   );
 };

@@ -8,16 +8,17 @@ const defaultPhoto =
 
 const PersonalDetails = () => {
   const [profile, setProfile] = useState({
-    full_name: "GC Yaswanth",
-    address: "BTM Layout, Benguluru",
-    phone: "+91 8688541202",
-    photo: "https://live.staticflickr.com/65535/54912741337_c6839d7c75_w.jpg",
-    highest_study: "B Tech",
-    college: "Siddharth Institute of Engineering And Technology",
-    graduation_year: 2025,
-    expertise: "Java, Pyhton, SQL, ML",
+    full_name: "",
+    address: "",
+    phone: "",
+    photo: "",
+    highest_study: "",
+    college: "",
+    graduation_year:"",
+    expertise: "",
   });
-  /*const navigate=useNavigate();
+  
+  const navigate=useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -69,19 +70,10 @@ const PersonalDetails = () => {
 
   
 
- {loading ? (
-        <div className="student-loader-wrapper">
-          <BeatLoader size={12} />
-          <p className="student-loader-text">Loading your profile…</p>
-        </div>
-      ) : error ? (
-        <div className="student-error-card">
-          <p>{error}</p>
-        </div>
-      ) : (
+  
 
 
-*/
+
 
 const expertiseTags =
     profile.expertise
@@ -99,13 +91,23 @@ const expertiseTags =
           Your student profile, education, and skills — all in one place.
         </p>
       </header>
- <button
-            type="button"
-            className="student-edit-link-btn"
-          >
-            ✏️ Edit Profile
-          </button>
-     
+      <button
+        onClick={() => navigate("/edit-details")}
+        type="button"
+        className="student-edit-link-btn"
+      >
+        ✏️ Edit Profile
+      </button>
+     {loading ? (
+        <div className="student-loader-wrapper">
+          <BeatLoader size={12} />
+          <p className="student-loader-text">Loading your profile…</p>
+        </div>
+      ) : error ? (
+        <div className="student-error-card">
+          <p>{error}</p>
+        </div>
+      ) :(
         <section className="student-layout">
           <div className="student-column student-column-left">
             <div className="student-summary-card">
@@ -195,7 +197,7 @@ const expertiseTags =
               )}
             </div>
           </div>
-        </section>
+        </section>)}
     </div>
   );
 };

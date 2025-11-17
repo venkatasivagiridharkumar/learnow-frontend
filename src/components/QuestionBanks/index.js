@@ -4,7 +4,7 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
 
-const questionsList = [
+/*const questionsList = [
   {
     id: "qb1",
     name: "Simple Array Sum",
@@ -60,12 +60,11 @@ const questionsList = [
     difficulty: "Hard",
     link: "https://www.hackerrank.com/challenges/bon-appetit"
   }
-];
+];*/
 
 
 const QuestionBanks = () => {
  
- /* 
   const [questionsList, setQuestionsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -96,8 +95,10 @@ const QuestionBanks = () => {
   }, []);
 
 
-
- {isLoading && (
+  return (
+    <div className="home-right-container">
+      <h1 className="each-container-main-heading">Question Banks</h1>
+      {isLoading && (
         <div className="loader-container pt-5" aria-live="polite" aria-busy="true">
           <BeatLoader size={13} className="mt-5" />
         </div>
@@ -112,21 +113,11 @@ const QuestionBanks = () => {
         </div>
       )}
 
-      {!isLoading && !error && questionsList.length === 0 && (
+        {!isLoading && !error && questionsList.length === 0 && (
         <p className="empty-text">No questions found.</p>
       )}
-      {!isLoading && !error && questionsList.length > 0 && (
-
-
-
-
-  */
-
-  return (
-    <div className="home-right-container">
-      <h1 className="each-container-main-heading">Question Banks</h1>
-
      
+     {!isLoading && !error && questionsList.length > 0 &&(
         <ul className="questionbank-container">
           {questionsList.map((each) => (
             <a href={each.link} className="text-decoration-none" target="_blank" rel="noreferrer"><li
@@ -160,6 +151,7 @@ const QuestionBanks = () => {
             </a>
           ))}
         </ul>
+      )}
     </div>
   );
 };
