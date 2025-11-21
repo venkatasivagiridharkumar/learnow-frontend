@@ -63,7 +63,7 @@ const JobsBoard = () => {
     setIsLoading(true);
     setError(false);
 
-    const url = "https://learnowbackmongo.onrender.com/frontend-jobs";
+    const url = "https://learnow-backmongo-production.up.railway.app/frontend-jobs";
     const response = await fetch(url);
 
     if (!response.ok) {

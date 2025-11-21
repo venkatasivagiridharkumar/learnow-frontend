@@ -15,7 +15,7 @@ const getDetails = async () => {
     const username = localStorage.getItem("username");
     if (!username) return;
 
-    const response = await fetch("https://learnowbackmongo.onrender.com/frontend-user-details", {
+    const response = await fetch("https://learnow-backmongo-production.up.railway.app/frontend-user-details", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,25 +24,27 @@ const getDetails = async () => {
     });
 
     if (!response.ok) {
-      
       console.error("Failed to fetch header user details", response.status);
       return;
     }
 
     const data = await response.json();
-
     if (!data) return;
 
     setDetails({
       img:
         data.photo ||
         "https://www.pngall.com/wp-content/uploads/12/Avatar-PNG-Images-HD.png",
-      name: data.full_name,
+      name:
+        data.full_name && data.full_name.trim() !== ""
+          ? data.full_name
+          : data.username,
     });
   } catch (err) {
     console.error("Error in getDetails:", err);
   }
 };
+
 
   useEffect(()=>{
      getDetails()

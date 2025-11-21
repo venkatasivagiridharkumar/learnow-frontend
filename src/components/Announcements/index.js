@@ -10,7 +10,7 @@ const Announcements = () => {
   const [error,setError]=useState([])
 
   const getAnnouncementsList=async ()=>{
-     const path = "https://learnowbackmongo.onrender.com/frontend-announcements";
+     const path = "https://learnow-backmongo-production.up.railway.app/frontend-announcements";
     setIsLoading(true);
     setError(null);
     try {

@@ -92,7 +92,7 @@ const EditPersonalDetails = () => {
       setSuccess("");
 
       const response = await fetch(
-        "https://learnowbackmongo.onrender.com/frontend-update-user-details",
+        "https://learnow-backmongo-production.up.railway.app/frontend-update-user-details",
         {
           method: "POST",
           headers: {
