@@ -62,28 +62,21 @@ const FEATURES = [
 
 const HomeLeft = (props) => {
   const [activeId, setActiveId] = useState("HOME");
-  const [username,setUsername]=useState("Yaswanth")
+  const [username,setUsername]=useState("")
 
   const handleLogout=props.onLogout;
 
-  const getUsername=async()=>{
+
+  const getUsername = async () => {
     const username = localStorage.getItem("username");
-  const response = await fetch("https://learnow-backmongo-production.up.railway.app/frontend-user-details", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username }),
-  });
-  const data = await response.json();
-  setUsername(data.username);
+    setUsername(username);
+
   }
 
 
-
   useEffect(()=>{
-    getUsername()
-  })
+    getUsername();
+  },[])
 
 
 

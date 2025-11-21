@@ -88,16 +88,17 @@ const MentorDetails = () => {
     }
 
     const data = await response.json();
+    const m = data.mentor || {};
 
     setDetails({
-      name: data.name,
-      username: data.username,
-      photo: data.photo,
-      phone: data.phone,
-      experience: data.experience,
-      expertise: data.expertise,
-      bio: data.bio,
-      linkedIn: data.linkedin || data.linkedIn,
+      name: m.name || "",
+      username: m.username || "",
+      photo: m.photo || "",
+      phone: m.phone || "",
+      experience: m.experience || "",
+      expertise: m.expertise || "",
+      bio: m.bio || "",
+      linkedIn: m.linkedin || m.linkedIn || "",
     });
   } catch (err) {
     console.error(err);

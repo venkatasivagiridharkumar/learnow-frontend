@@ -12,38 +12,63 @@ const Header = (props) => {
   
 const getDetails = async () => {
   try {
+    setIsLoading(true);
+    setError("");
+
     const username = localStorage.getItem("username");
-    if (!username) return;
+    if (!username) {
+      throw new Error("No username found in local storage");
+    }
 
-    const response = await fetch("https://learnow-backmongo-production.up.railway.app/frontend-user-details", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username }),
-    });
+    const response = await fetch(
+      "https://learnow-backmongo-production.up.railway.app/frontend-mentor-details",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username }),
+      }
+    );
 
-    if (!response.ok) {
-      console.error("Failed to fetch header user details", response.status);
+    if (response.status === 404) {
+      setDetails({
+        username: "",
+        name: "",
+        photo: "",
+        phone: "",
+        experience: "",
+        expertise: "",
+        bio: "No mentor assigned yet. Please contact admin.",
+        linkedIn: "",
+      });
+      setIsLoading(false);
       return;
     }
 
+    if (!response.ok) {
+      throw new Error("Failed to fetch mentor details");
+    }
+
     const data = await response.json();
-    if (!data) return;
+    const mentor = data.mentor || {};
 
     setDetails({
-      img:
-        data.photo ||
-        "https://www.pngall.com/wp-content/uploads/12/Avatar-PNG-Images-HD.png",
-      name:
-        data.full_name && data.full_name.trim() !== ""
-          ? data.full_name
-          : data.username,
+      name: mentor.name || "",
+      username: mentor.username || "",
+      photo: mentor.photo || "",
+      phone: mentor.phone || "",
+      experience: mentor.experience || "",
+      expertise: mentor.expertise || "",
+      bio: mentor.bio || "",
+      linkedIn: mentor.linkedin || mentor.linkedIn || "",
     });
   } catch (err) {
-    console.error("Error in getDetails:", err);
+    console.error(err);
+    setError(err.message || "Something went wrong");
+  } finally {
+    setIsLoading(false);
   }
 };
+
 
 
   useEffect(()=>{
