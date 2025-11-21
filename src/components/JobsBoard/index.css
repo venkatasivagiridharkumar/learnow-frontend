@@ -1,11 +1,13 @@
+/* ---------- Layout wrapper ---------- */
 .home-right-container {
   flex: 1 1 auto;
   min-width: 0;
-  background: #ffffff;        
+  background: #ffffff;           /* ensure white behind cards */
   padding: 24px 16px;
   overflow: auto;
 }
 
+/* Page heading */
 .each-container-main-heading {
   align-self: flex-start;
   font-size: 32px;
@@ -18,52 +20,68 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* ---------- Jobs board container ---------- */
 .jobs-board-container {
   width: 100%;
-  max-width: 1100px;
   margin: 0 auto;
-  background: #ffffff !important;
+  max-width: 1200px;             /* center on large screens */
+  padding: 0 0 1.5rem;
 }
 
+/* ---------- Jobs list grid (cards per row) ---------- */
+/* Mobile default (≤ 767px): 1 card per row, full width */
 .jobs-list {
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
   margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: 1fr;              
-  gap: 20px;
+  grid-template-columns: 1fr;    /* 1 card per row */
+  gap: 16px;
 }
 
-@media (min-width: 768px) {
+/* Tablets (≥ 768px and < 1200px): 2 cards per row */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .home-right-container {
+    padding: 24px;
+  }
+
+  .jobs-board-container {
+    padding: 0;
+  }
+
+  .jobs-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 cards per row */
+    gap: 20px;
+  }
+}
+
+/* Laptops / desktops (≥ 1200px): 3 cards per row */
+@media (min-width: 1200px) {
   .home-right-container {
     padding: 32px 32px;
   }
 
+  .jobs-board-container {
+    padding: 0;
+  }
+
   .jobs-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 cards per row */
     gap: 24px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));  
   }
 }
 
-@media (min-width: 1024px) {
-  .jobs-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));   
-  }
-}
-
-
-
+/* ---------- Job card ---------- */
 .job-card {
-  background: #ffffff;                         
+  background: #ffffff;           /* white card – no blue behind */
   border-radius: 16px;
-  padding: 1.5rem 1.75rem;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
   border: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-  width: 100%;
 }
 
 .job-card:hover {
@@ -72,38 +90,38 @@
   border-color: #d1d5db;
 }
 
-
+/* ---------- Header ---------- */
 .job-card__header {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
   align-items: flex-start;
+  gap: 1rem;
 }
 
 .job-card__company {
-  font-size: 0.9rem;
-  color: #6b7280;
   margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
 }
 
 .job-card__title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #111827;
   margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
 }
 
-
+/* ---------- Meta section (Location / CTC / Apply By) ---------- */
 .job-card__meta {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* MOBILE: 2 columns */
   gap: 0.75rem 1.5rem;
 }
 
-@media (min-width: 640px) {
-  .job-card__meta {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+/* On mobile, put the 3rd item (Apply By) on its own row */
+.job-card__meta-item:nth-child(3) {
+  grid-column: 1 / -1; /* span both columns on small screens */
 }
 
 .job-card__meta-item {
@@ -131,78 +149,83 @@
   color: #111827;
 }
 
+/* On tablets & up, show 3 items in one row */
+@media (min-width: 768px) {
+  .job-card__meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem 1.5rem;
+  }
 
+  .job-card__meta-item:nth-child(3) {
+    grid-column: auto; /* no spanning, all three in one row */
+  }
+}
+
+/* ---------- Footer ---------- */
 .job-card__footer {
+  margin-top: 0.75rem;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  gap: 0.75rem;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-}
-.skills-element{
-  font-size:13px;
-  color:black;
+  gap: 0.75rem;
 }
 
-.job-card__badge {
-  border: none;
-  border-radius: 999px;
-  padding: 0.4rem 1rem;
-  font-size: 0.8rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: #fef3c7;
-  color: #92400e;
-  cursor: default;
+.skills-element {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #111827;
 }
 
+/* Apply link button */
 .job-card__link {
-  border: none;
-  background: transparent;
-  color: #7c3aed;
+  text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
   cursor: pointer;
-  padding: 0;
 }
 
 .job-card__link:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .job-card__link-arrow {
   font-size: 1.1rem;
 }
 
+/* ---------- Extra small phones tweaks ---------- */
 @media (max-width: 480px) {
+  .home-right-container {
+    padding: 16px 12px;
+  }
+
+  .jobs-board-container {
+    padding: 0;
+  }
+
   .job-card {
-    padding: 1.25rem 1.25rem;
+    padding: 1.1rem;
     border-radius: 12px;
   }
-}
-.jobs-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
 
-@media (min-width: 768px) {
-  .jobs-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+  .job-card__title {
+    font-size: 1rem;
   }
-}
 
-@media (min-width: 1024px) {
-  .jobs-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .job-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-card__link {
+    width: 100%;
+    justify-content: center;
   }
 }

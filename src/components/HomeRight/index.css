@@ -139,3 +139,6 @@ body { margin: 0; }
 
   .unordered-list { font-size: 14px; }
 }
+.home-right-container {
+  overflow: auto;
+}

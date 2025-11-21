@@ -35,9 +35,8 @@ const EditPersonalDetails = () => {
       if (!username) {
         throw new Error("No username found in local storage");
       }
-
       const response = await fetch(
-        "https://learnowback.onrender.com/frontend-user-details",
+        "https://learnow-backmongo-production.up.railway.app/frontend-user-details",
         {
           method: "POST",
           headers: {

@@ -14,11 +14,11 @@ const PersonalDetails = () => {
     photo: "",
     highest_study: "",
     college: "",
-    graduation_year:"",
+    graduation_year: "",
     expertise: "",
   });
-  
-  const navigate=useNavigate();
+
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -29,6 +29,11 @@ const PersonalDetails = () => {
       setError("");
 
       const username = localStorage.getItem("username");
+      console.log("PersonalDetails: username from localStorage =", username);
+
+      if (!username) {
+        throw new Error("No username found in local storage");
+      }
 
       const response = await fetch(
         "https://learnow-backmongo-production.up.railway.app/frontend-user-details",
@@ -41,24 +46,36 @@ const PersonalDetails = () => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch profile");
+      console.log("PersonalDetails: response status =", response.status);
+
+      // Try to parse JSON even on error to see message from backend
+      const data = await response.json().catch(() => null);
+      console.log("PersonalDetails: response data =", data);
+
+      if (response.status === 404) {
+        // User not found → show backend message but don't crash
+        setError(data?.message || "User details not found");
+        return;
       }
-      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.error || data?.message || "Failed to fetch profile");
+      }
+
+      // Success: data is your user object
       setProfile({
-        full_name: data.full_name,
-        address: data.address,
-        phone: data.phone,
-        photo: data.photo,
-        highest_study: data.highest_study,
-        college: data.college,
-        graduation_year: data.graduation_year,
-        expertise: data.expertise,
+        full_name: data.full_name || "",
+        address: data.address || "",
+        phone: data.phone || "",
+        photo: data.photo || "",
+        highest_study: data.highest_study || "",
+        college: data.college || "",
+        graduation_year: data.graduation_year || "",
+        expertise: data.expertise || "",
       });
-    } 
-    catch (err) {
-      console.error(err);
-      setError("Unable to load your profile. Please try again later.");
+    } catch (err) {
+      console.error("PersonalDetails: fetch error", err);
+      setError(err.message || "Unable to load your profile. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -68,20 +85,11 @@ const PersonalDetails = () => {
     getProfile();
   }, []);
 
-  
-
-  
-
-
-
-
-const expertiseTags =
+  const expertiseTags =
     profile.expertise
       ?.split(",")
       .map((tag) => tag.trim())
       .filter(Boolean) || [];
-
-
 
   return (
     <div className="home-right-container student-page">
@@ -91,6 +99,7 @@ const expertiseTags =
           Your student profile, education, and skills — all in one place.
         </p>
       </header>
+
       <button
         onClick={() => navigate("/edit-details")}
         type="button"
@@ -98,7 +107,8 @@ const expertiseTags =
       >
         ✏️ Edit Profile
       </button>
-     {loading ? (
+
+      {loading ? (
         <div className="student-loader-wrapper">
           <BeatLoader size={12} />
           <p className="student-loader-text">Loading your profile…</p>
@@ -107,7 +117,7 @@ const expertiseTags =
         <div className="student-error-card">
           <p>{error}</p>
         </div>
-      ) :(
+      ) : (
         <section className="student-layout">
           <div className="student-column student-column-left">
             <div className="student-summary-card">
@@ -136,7 +146,6 @@ const expertiseTags =
             </div>
           </div>
 
-         
           <div className="student-column student-column-right">
             <div className="student-info-card">
               <h3 className="student-section-title">Basic Information</h3>
@@ -197,7 +206,8 @@ const expertiseTags =
               )}
             </div>
           </div>
-        </section>)}
+        </section>
+      )}
     </div>
   );
 };
