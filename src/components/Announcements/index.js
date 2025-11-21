@@ -10,7 +10,7 @@ const Announcements = () => {
   const [error,setError]=useState([])
 
   const getAnnouncementsList=async ()=>{
-     const path = "https://learnowback.onrender.com/frontend-announcements";
+     const path = "https://learnowbackmongo.onrender.com/frontend-announcements";
     setIsLoading(true);
     setError(null);
     try {

@@ -15,7 +15,7 @@ const getDetails = async () => {
     const username = localStorage.getItem("username");
     if (!username) return;
 
-    const response = await fetch("https://learnowback.onrender.com/frontend-user-details", {
+    const response = await fetch("https://learnowbackmongo.onrender.com/frontend-user-details", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

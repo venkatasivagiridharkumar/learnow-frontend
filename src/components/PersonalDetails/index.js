@@ -31,7 +31,7 @@ const PersonalDetails = () => {
       const username = localStorage.getItem("username");
 
       const response = await fetch(
-        "https://learnowback.onrender.com/frontend-user-details",
+        "https://learnowbackmongo.onrender.com/frontend-user-details",
         {
           method: "POST",
           headers: {

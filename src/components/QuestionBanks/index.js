@@ -71,7 +71,7 @@ const QuestionBanks = () => {
 
  
  const getQuestionsList = async () => {
-    const path = "https://learnowback.onrender.com/frontend-coding-questions";
+    const path = "https://learnowbackmongo.onrender.com/frontend-coding-questions";
     setIsLoading(true);
     setError(null);
     try {

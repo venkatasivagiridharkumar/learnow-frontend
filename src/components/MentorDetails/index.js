@@ -58,7 +58,7 @@ const MentorDetails = () => {
     }
 
     const response = await fetch(
-      "https://learnowback.onrender.com/frontend-mentor-details",
+      "https://learnowbackmongo.onrender.com/frontend-mentor-details",
       {
         method: "POST",
         headers: {

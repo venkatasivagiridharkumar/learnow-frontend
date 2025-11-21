@@ -92,7 +92,7 @@ const EditPersonalDetails = () => {
       setSuccess("");
 
       const response = await fetch(
-        "https://learnowback.onrender.com/frontend-update-user-details",
+        "https://learnowbackmongo.onrender.com/frontend-update-user-details",
         {
           method: "POST",
           headers: {
