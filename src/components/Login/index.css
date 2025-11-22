@@ -80,3 +80,6 @@
     padding: 2rem 1.5rem !important;
   }
 }
+.link-primary{
+  cursor:pointer;
+}

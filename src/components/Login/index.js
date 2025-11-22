@@ -62,7 +62,19 @@ const Login = (props) => {
   }
 };
 
+
+const onClickList = (phoneNumber) => {
+    const digits = (phoneNumber || "").replace(/\D/g, "");
+    const withCode = digits.length === 10 ? `91${digits}` : digits;
+    const url = `https://wa.me/${withCode}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+
+
   return (
+    <><h6 className="text-dark">Username is : giridhar    &&   password is : Giridhar@2004 <br/>These are demo credentials </h6>
+      
     <div className="login-page d-flex align-items-center justify-content-center">
       <div className="login-card shadow-lg">
         <div className="row g-0 h-100">
@@ -139,13 +151,13 @@ const Login = (props) => {
               </form>
 
               <p className="mt-4 mb-0 small text-muted text-center">
-                New to Learnow? <span className="link-primary">Contact admin to create an account.</span>
+                New to Learnow? <span className="link-primary" onClick={()=>{onClickList("+91 9652530489")}}>Contact admin to create an account.</span>
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div></>
   );
 };
 
