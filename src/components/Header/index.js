@@ -22,7 +22,7 @@ const Header = (props) => {
       const username = localStorage.getItem("username");
       if (!username) return; 
       const response = await fetch(
-        "https://learnow-backmongo-production.up.railway.app/frontend-user-details",
+        "https://learnowbackmongo.onrender.com/frontend-user-details",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

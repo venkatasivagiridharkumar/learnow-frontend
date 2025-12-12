@@ -71,7 +71,7 @@ const QuestionBanks = () => {
 
  
  const getQuestionsList = async () => {
-    const path = "https://learnow-backmongo-production.up.railway.app/frontend-coding-questions";
+    const path = "https://learnowbackmongo.onrender.com/frontend-coding-questions";
     setIsLoading(true);
     setError(null);
     try {

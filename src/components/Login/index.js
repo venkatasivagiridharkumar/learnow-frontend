@@ -32,7 +32,7 @@ const Login = (props) => {
   }
 
   try {
-    const res = await fetch("https://learnow-backmongo-production.up.railway.app/login", {
+    const res = await fetch("https://learnowbackmongo.onrender.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),

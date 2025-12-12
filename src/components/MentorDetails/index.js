@@ -58,7 +58,7 @@ const MentorDetails = () => {
     }
 
     const response = await fetch(
-      "https://learnow-backmongo-production.up.railway.app/frontend-mentor-details",
+      "https://learnowbackmongo.onrender.com/frontend-mentor-details",
       {
         method: "POST",
         headers: {
